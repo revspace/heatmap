@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Revspace Heatmap</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div class="header">
+      <b>DISCLAIMER: this is a heatmap of historical data, and gives no guarantees!</b><br>
+      Data from {{date}}
+    </div>
+    {{#states}}
+      <div class="state" id={{state}}>{{state}}</div>
+    {{/states}}
+  </body>
+</html>
