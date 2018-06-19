@@ -31,7 +31,7 @@ table {
   border-collapse: collapse;
   border-top: none; }
   table tr td {
-    border: 1px solid gray;
+    border: none;
     padding: 0.55rem 0.2rem;
     text-align: center;
     width: 2rem; }
