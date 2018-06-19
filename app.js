@@ -1,6 +1,5 @@
 const express = require('express')
 const expressPromiseRouter = require("express-promise-router");
-const cron = require('node-cron');
 const Promise = require("bluebird");
 const bhttp = require("bhttp");
 const unhandledError = require("unhandled-error");
