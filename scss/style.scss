@@ -23,6 +23,10 @@ body {
   margin-bottom: 0.5rem;
 }
 
+a {
+  color: blue;
+}
+
 .heatmap {
   margin: 20px auto;
   display: inline-block;
@@ -59,7 +63,7 @@ table {
 
   .hours {
     position: relative;
-    left: -1.3rem;
+    left: -1.6rem;
     text-align: center;
 
     td {
@@ -70,4 +74,8 @@ table {
   .first, .last, .day {
     border: none;
   }
+}
+
+.yearSlider {
+  display: none;
 }

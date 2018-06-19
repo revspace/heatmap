@@ -7,9 +7,10 @@
   <body>
     <div class="header">
       <b>DISCLAIMER: this is a heatmap of historical data, and gives no guarantees!</b><br>
+      The most useful heatmap for predictions however, is <a href="#70days">70 Days</a>
     </div>
     {{#heatmaps}}
-    <div class="heatmap">
+    <div class="heatmap" id={{filename}}>
       <h2>{{header}}</h2>
       <table>
         <tr class="hours">
@@ -51,5 +52,96 @@
       </table>
     </div>
     {{/heatmaps}}
+
+
+    {{#yearSlider}}
+    <div class="slider">
+      {{#data}}
+      <div class="heatmap yearSlider" id={{filename}}>
+        <h2>{{header}}</h2>
+        <table>
+          <tr class="hours">
+            <td></td>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+          </tr>
+          {{#heatmap}}
+          <tr>
+            <td class="day">{{day}}</td>
+            {{#columns}}
+            <td style="background-color: {{color}}">{{percentage}}</td>
+            {{/columns}}
+          </tr>
+          {{/heatmap}}
+        </table>
+      </div>
+      {{/data}}
+      <input id="slider" type="range" min="{{firstYear}}" max="{{lastYear}}" step="1" value="{{lastYear}}"/>
+      <input id="animate" type="checkbox" />
+    </div>
+
+    {{=<% %>=}}
+    <script>
+      let slider = document.getElementById("slider");
+      let animateCheck = document.getElementById("animate");
+      slider.addEventListener("input", slide);
+      animateCheck.addEventListener("change", clickAnimate);
+
+      let animationTimeout;
+
+      function slide() {
+        let selectedYear = slider.value;
+        Array.from(document.getElementsByClassName("yearSlider")).forEach((element) => {
+          element.style.display = "none";
+        });
+        document.getElementById(`year${selectedYear}`).style.display = "block";
+      }
+
+      function clickAnimate() {
+        if (animateCheck.checked) {
+          animate();
+        }
+      }
+
+      function animate() {
+        console.log(slider.value);
+        let nextYear = parseInt(slider.value) + 1;
+        if (nextYear > <%lastYear%>) {
+          nextYear = <%firstYear%>;
+        }
+        slider.value = nextYear;
+        slide();
+        if (animateCheck.checked) {
+          setTimeout(animate, 500);
+        }
+      }
+
+      clickAnimate();
+    </script>
+    <%={{ }}=%>
+    {{/yearSlider}}
   </body>
 </html>

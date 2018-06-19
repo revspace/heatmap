@@ -16,6 +16,9 @@ body {
 .header {
   margin-bottom: 0.5rem; }
 
+a {
+  color: blue; }
+
 .heatmap {
   margin: 20px auto;
   display: inline-block;
@@ -41,9 +44,12 @@ table {
     background-color: white; }
   table .hours {
     position: relative;
-    left: -1.3rem;
+    left: -1.6rem;
     text-align: center; }
     table .hours td {
       border: none; }
   table .first, table .last, table .day {
     border: none; }
+
+.yearSlider {
+  display: none; }
