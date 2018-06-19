@@ -78,7 +78,7 @@ table {
 
 .sliderControl {
   width: 100%;
-  display: flex;
+  display: none;
 
   #slider {
     flex: 1 1 auto;
@@ -86,10 +86,6 @@ table {
 }
 
 .slider {
-  input {
-    display: none;
-  }
-
   .switch {
     align-self: flex-end;
     position: relative;

@@ -144,9 +144,7 @@
         }
       }
 
-      Array.from(document.getElementsByClassName("controls")).forEach((element) => {
-        element.style.display = "inline-block";
-      })
+      document.getElementsByClassName("sliderControl")[0].style.display = "flex";
 
       slide();
       clickAnimate();

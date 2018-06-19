@@ -53,12 +53,9 @@ table {
 
 .sliderControl {
   width: 100%;
-  display: flex; }
+  display: none; }
   .sliderControl #slider {
     flex: 1 1 auto; }
-
-.slider input {
-  display: none; }
 
 .slider .switch {
   align-self: flex-end;
