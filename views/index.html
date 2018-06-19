@@ -55,7 +55,7 @@
 
 
     {{#yearSlider}}
-    <div class="slider">
+    <div class="slider" id="yearslider">
       {{#data}}
       <div class="heatmap yearSlider" id={{filename}}>
         <h2>{{header}}</h2>
@@ -99,8 +99,13 @@
         </table>
       </div>
       {{/data}}
-      <input id="slider" type="range" min="{{firstYear}}" max="{{lastYear}}" step="1" value="{{lastYear}}"/>
-      <input id="animate" type="checkbox" />
+      <div class="sliderControl">
+        <input class="controls" id="slider" type="range" min="{{firstYear}}" max="{{lastYear}}" step="1" value="{{lastYear}}"/>
+        <label class="controls switch" for="animate">
+          <input id="animate" type="checkbox" />
+          <span class="toggle"/>
+        </label>
+      </div>
     </div>
 
     {{=<% %>=}}
@@ -132,13 +137,18 @@
         if (nextYear > <%lastYear%>) {
           nextYear = <%firstYear%>;
         }
-        slider.value = nextYear;
-        slide();
         if (animateCheck.checked) {
+          slider.value = nextYear;
+          slide();
           setTimeout(animate, 500);
         }
       }
 
+      Array.from(document.getElementsByClassName("controls")).forEach((element) => {
+        element.style.display = "inline-block";
+      })
+
+      slide();
       clickAnimate();
     </script>
     <%={{ }}=%>

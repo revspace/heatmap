@@ -76,6 +76,68 @@ table {
   }
 }
 
-.yearSlider {
-  display: none;
+.sliderControl {
+  width: 100%;
+  display: flex;
+
+  #slider {
+    flex: 1 1 auto;
+  }
 }
+
+.slider {
+  input {
+    display: none;
+  }
+
+  .switch {
+    align-self: flex-end;
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+
+    input:checked + .toggle {
+      background-color: #2196F3;
+    }
+    
+    input:focus + .toggle {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input {
+      display: none;
+    }
+  
+    .toggle {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 25px;
+      margin: 0;
+    }
+    
+    .toggle:before {
+      position: absolute;
+      content: "";
+      height: 23px;
+      width: 23px;
+      left: 1px;
+      bottom: 1px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .toggle:before {
+      transform: translateX(23px);
+    }
+  }
+}
+
+
