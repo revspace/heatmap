@@ -32,7 +32,7 @@ gulp.task("nodemon", ["scss", "livereload"], () => {
             "node_modules",
             "public"
         ],
-        ext: "js html"
+        ext: "js html json"
     }).on("start", () => {
         Promise.try(() => {
             serverLogger.info("Starting...");

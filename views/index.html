@@ -7,10 +7,50 @@
   <body>
     <div class="header">
       <b>DISCLAIMER: this is a heatmap of historical data, and gives no guarantees!</b><br>
-      Data from {{date}}
+      Data from {{dates.from}} to {{dates.to}}
     </div>
-    {{#states}}
-      <div class="state" id={{state}}>{{state}}</div>
-    {{/states}}
+    {{#heatmaps}}
+    <div class="heatmap">
+      <h2>{{header}}</h2>
+      <table>
+        <tr class="hours">
+          <td class="first"></td>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td class="last">24</td>
+        </tr>
+        {{#heatmap}}
+        <tr>
+          <td class="day">{{day}}</td>
+          {{#columns}}
+          <td style="background-color: {{color}}">{{percentage}}</td>
+          {{/columns}}
+        </tr>
+        {{/heatmap}}
+      </table>
+    </div>
+    {{/heatmaps}}
   </body>
 </html>

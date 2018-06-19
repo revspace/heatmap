@@ -5,23 +5,68 @@ html, body {
   margin: 1rem;
   background: $bg;
   color: $fg;
+  font-size: 1.3rem;
 }
 
-.header, .heatmap, .state {
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header, h2, table {
   background: white;
   box-shadow: 0 1px 1px rgba(0,0,0,.15);
   padding: 1rem;
 }
 
-.state {
-  color: white;
+.header {
+  margin-bottom: 0.5rem;
+}
+
+.heatmap {
+  margin: 20px auto;
   display: inline-block;
+  padding: 0;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    padding: 5px;
+  }
 }
 
-#open {
-  background: #8c9440;
-}
+table {
+  font-family: monospace;
+  border-collapse: collapse;
+  border-top: none;
 
-#closed {
-  background: #a54242;
+  tr {
+    td {
+      border: 1px solid gray;
+      padding: 0.55rem 0.2rem;
+      text-align: center;
+      width: 2rem;
+    }
+
+    .day {
+      font-size: 80%;
+      padding: 9px 15px;
+      background-color: white;
+    }
+  }
+
+  .hours {
+    position: relative;
+    left: -1.3rem;
+    text-align: center;
+
+    td {
+      border: none;
+    }
+  }
+
+  .first, .last, .day {
+    border: none;
+  }
 }

@@ -1,19 +1,49 @@
 html, body {
   margin: 1rem;
   background: #f5f5f5;
-  color: #383838; }
+  color: #383838;
+  font-size: 1.3rem; }
 
-.header, .heatmap, .state {
+body {
+  display: flex;
+  flex-direction: column; }
+
+.header, h2, table {
   background: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   padding: 1rem; }
 
-.state {
-  color: white;
-  display: inline-block; }
+.header {
+  margin-bottom: 0.5rem; }
 
-#open {
-  background: #8c9440; }
+.heatmap {
+  margin: 20px auto;
+  display: inline-block;
+  padding: 0; }
+  .heatmap h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    padding: 5px; }
 
-#closed {
-  background: #a54242; }
+table {
+  font-family: monospace;
+  border-collapse: collapse;
+  border-top: none; }
+  table tr td {
+    border: 1px solid gray;
+    padding: 0.55rem 0.2rem;
+    text-align: center;
+    width: 2rem; }
+  table tr .day {
+    font-size: 80%;
+    padding: 9px 15px;
+    background-color: white; }
+  table .hours {
+    position: relative;
+    left: -1.3rem;
+    text-align: center; }
+    table .hours td {
+      border: none; }
+  table .first, table .last, table .day {
+    border: none; }

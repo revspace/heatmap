@@ -12,37 +12,38 @@ let errorReporter = unhandledError((error, context) => {
   console.error(error, context);
 });
 
-// Spec
-//
-// 64bit epoch
-// first bit after that is on the timestamp
-// resolution 1 minute
-// ascii 0=closed 1=open ?=no data
-
-// Node can only read 32bit epoch!
- 
 let app = express();
 let router = expressPromiseRouter();
+const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 router.get("/", function(req, res){
   return Promise.try(function(){
-    return readFile('statelog')
-      .then((buffer) => {
-        let timestamp = buffer.readUInt32LE(0);
-        let date = new Date(timestamp*1000);
-        let spaceStateBuffer = buffer.slice(8);
+    return readFile('alltime.json', 'ascii')
+      .then((file) => JSON.parse(file))
+      .then((json) => {
+        let dates = {
+          from: json.begin.iso,
+          to: json.end.iso
+        };
 
-        let states = [];
-        for (let byte of spaceStateBuffer) {
-          if (byte == 49) {
-            states.push({state: "open"});
-          } else {
-            states.push({state: "closed"});
-          }
-        }
+        let jsonHeatmap = json.heatmap;
+        jsonHeatmap.push(jsonHeatmap.shift()); //Move Sunday to end of array
 
-        //return `Data starts at ${date}<br>${stateString}`;
-        return {date: date, states: states};
+        let heatmap = [];
+        json.heatmap.forEach((values, index) => {
+          let columns = [];
+          values.forEach((percentage) => {
+            let color = `hsla(${1.2*percentage}, 100%, 50%, 1)`;
+            columns.push({color: color, percentage: percentage.toString()}); //nbsp
+          });
+
+          heatmap.push({
+            day: weekDays[index],
+            columns: columns
+          });
+        });
+
+        return {dates: dates, heatmaps: [{header: "All Time Heatmap", heatmap: heatmap}]};
       })
       .catch((e) => {
         console.error("Error reading file", e);
