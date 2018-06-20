@@ -72,9 +72,6 @@ function getHeatmap(filename, weekDays, fileNames) {
         let columns = [];
         values.forEach((percentage) => {
           let color = `hsla(${1.2*percentage}, 100%, 50%, 1)`;
-          if (percentage == '100' && (Math.random() * 100) < 2) {
-            percentage = 108;
-          }
           columns.push({color: color, percentage: percentage.toString()}); //nbsp
         });
 
