@@ -1,8 +1,7 @@
 html, body {
   margin: 1rem;
   background: #f5f5f5;
-  color: #383838;
-  font-size: 1.3rem; }
+  color: #383838; }
 
 body {
   display: flex;
