@@ -32,19 +32,19 @@ a {
 table {
   font-family: monospace;
   border-collapse: collapse;
-  border-top: none; }
+  border-top: none;
+  width: 90vw; }
   table tr td {
     border: none;
-    padding: 0.55rem 0.2rem;
     text-align: center;
-    width: 3rem; }
+    width: 4%; }
   table tr .day {
     font-size: 80%;
     padding: 9px 15px;
     background-color: white; }
   table .hours {
     position: relative;
-    left: -1.6rem;
+    left: -2%;
     text-align: center; }
     table .hours td {
       border: none; }

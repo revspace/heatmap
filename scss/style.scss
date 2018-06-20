@@ -44,14 +44,15 @@ table {
   font-family: monospace;
   border-collapse: collapse;
   border-top: none;
+  width: 90vw;
 
   tr {
     td {
       //border: 1px solid gray;
       border: none;
-      padding: 0.55rem 0.2rem;
+      //padding: 0.55rem 0.2rem;
       text-align: center;
-      width: 3rem;
+      width: 4%;
     }
 
     .day {
@@ -63,7 +64,7 @@ table {
 
   .hours {
     position: relative;
-    left: -1.6rem;
+    left: -2%;
     text-align: center;
 
     td {
