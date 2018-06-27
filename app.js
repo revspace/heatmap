@@ -20,8 +20,8 @@ router.get("/", function(req, res){
   const fileNames = {
     "7days": "Last 7 Days",
     "70days": "Last 70 Days",
-    "365days": "Last 365 Days"
-    "alltime": "All Time",
+    "365days": "Last 365 Days",
+    "alltime": "All Time"
   };
 
   return Promise.try(function(){
