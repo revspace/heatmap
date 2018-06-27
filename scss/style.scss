@@ -79,12 +79,12 @@ table {
 .sliderControl {
   width: 100%;
   display: none;
-  flex-direction: column;
 
   #slider {
     flex: 1 1 auto;
     width: 100%;
     margin: 0;
+    height: 2.8rem;
   }
 }
 
