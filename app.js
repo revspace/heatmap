@@ -18,10 +18,10 @@ router.get("/", function(req, res){
   const currentYear = `year${now.getFullYear()}`;
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const fileNames = {
-    "alltime": "All Time",
     "7days": "Last 7 Days",
     "70days": "Last 70 Days",
     "365days": "Last 365 Days"
+    "alltime": "All Time",
   };
 
   return Promise.try(function(){
