@@ -85,7 +85,7 @@ function getHeatmap(filename, weekDays, fileNames) {
       let shiftedHeatmap = heatmap;
       shiftedHeatmap.push(shiftedHeatmap.shift());
 
-      return {header: fileNames[filename], heatmap: shiftedHeatmap, filename: filename};
+      return {header: fileNames[filename], dates: dates, heatmap: shiftedHeatmap, filename: filename};
     })
 }
 
