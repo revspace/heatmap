@@ -91,6 +91,12 @@ function getHeatmap(filename, weekDays, fileNames) {
 
 app.use(router);
 app.use(express.static(path.join(__dirname, "public")));
+
+function jsonHeaders(res) {
+  res.set('content-type', 'application/json');
+}
+
+app.use('/api', express.static(path.join(__dirname, "heatmaps"), {setHeaders: jsonHeaders}));
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 
