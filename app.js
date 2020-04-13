@@ -1,7 +1,6 @@
 const express = require('express')
 const expressPromiseRouter = require("express-promise-router");
 const Promise = require("bluebird");
-const bhttp = require("bhttp");
 const unhandledError = require("unhandled-error");
 const readFile = Promise.promisify(require("fs").readFile);
 const mustacheExpress = require('mustache-express');
@@ -11,9 +10,11 @@ let errorReporter = unhandledError((error, context) => {
   console.error(error, context);
 });
 
+const root = '/heatmap';
+
 let app = express();
 let router = expressPromiseRouter();
-router.get("/", function(req, res){
+router.get(root, function(req, res){
   let now = new Date();
   const currentYear = `year${now.getFullYear()}`;
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -90,13 +91,13 @@ function getHeatmap(filename, weekDays, fileNames) {
 }
 
 app.use(router);
-app.use(express.static(path.join(__dirname, "public")));
+app.use(root, express.static(path.join(__dirname, "public")));
 
 function jsonHeaders(res) {
   res.set('content-type', 'application/json');
 }
 
-app.use('/api', express.static(path.join(__dirname, "heatmaps"), {setHeaders: jsonHeaders, index: true}));
+app.use(`${root}/api`, express.static(path.join(__dirname, "heatmaps"), {setHeaders: jsonHeaders}));
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 

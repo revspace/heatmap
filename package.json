@@ -13,15 +13,11 @@
   "author": "f0x",
   "license": "AGPL-3.0",
   "dependencies": {
-    "bhttp": "^1.2.4",
     "express": "^4.16.3",
     "express-promise-router": "^3.0.2",
     "graphite": "^0.1.2",
     "mustache": "^2.3.0",
     "mustache-express": "^1.2.6",
-    "node-cron": "^1.2.1",
-    "rrd": "https://github.com/Orion98MC/node_rrd",
-    "rrdtool": "^0.1.1",
     "unhandled-error": "^1.0.0"
   },
   "devDependencies": {
