@@ -96,7 +96,7 @@ function jsonHeaders(res) {
   res.set('content-type', 'application/json');
 }
 
-app.use('/api', express.static(path.join(__dirname, "heatmaps"), {setHeaders: jsonHeaders}));
+app.use('/api', express.static(path.join(__dirname, "heatmaps"), {setHeaders: jsonHeaders, index: true}));
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 
