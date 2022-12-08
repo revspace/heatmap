@@ -13,7 +13,7 @@
   "author": "f0x",
   "license": "AGPL-3.0",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-promise-router": "^3.0.2",
     "graphite": "^0.1.2",
     "mustache": "^2.3.0",
